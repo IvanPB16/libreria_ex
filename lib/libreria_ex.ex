@@ -3,16 +3,11 @@ defmodule LibreriaEx do
   Documentation for `LibreriaEx`.
   """
 
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> LibreriaEx.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  @doc false
+  defmacro __using__(_) do
+    quote do
+      import LibreriaEx.Operaciones
+    end
   end
+
 end
