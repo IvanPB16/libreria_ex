@@ -7,7 +7,7 @@ defmodule LibreriaEx.Router do
         opts = []
 
         # All helpers are public contracts and cannot be changed
-        live "/", Phoenix.LiveDashboard.PageLive, :home, opts
+        live "/", LibreriaEx.PageLive, :home, opts
       end
     end
   end
