@@ -16,7 +16,9 @@ defmodule LibreriaEx.PageLive do
   @impl true
   def render(assigns) do
     ~L"""
-      <h1>Hello world</h1>
+      <div class="container">
+        <h1>Un saludo desde la libreria de elixir</h1>
+      </div>
     """
   end
 end
