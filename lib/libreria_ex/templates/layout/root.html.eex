@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <%= csrf_meta_tag() %>
-    <title><%= assigns[:page_title] || "Phoenix LiveDashboard" %></title>
+    <title><%= assigns[:page_title] || "Libreria Ex" %></title>
     <style <%= csp_nonce(@conn, :style) %>><%= raw(render("app.css")) %></style>
 </head>
 <body>
   <%= @inner_content %>
-  <h1>Hola</h1>
   <script <%= csp_nonce(@conn, :script) %>><%= raw(render("app.js")) %></script>
 </body>
 </html>
