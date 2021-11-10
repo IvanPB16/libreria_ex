@@ -1,13 +1,13 @@
-defmodule LibreriaEx do
-  @moduledoc """
-  Documentation for `LibreriaEx`.
-  """
-
-  @doc false
-  defmacro __using__(_) do
-    quote do
-      import LibreriaEx.Operaciones
-    end
+defmodule CompileTime do
+  defmacro compile() do
+    IO.puts("Tiempo de compilación otra vez")
   end
+end
+
+defmodule LibreriaEx do
+  require CompileTime
+  CompileTime.compile()
+
+  def sayHello(), do: IO.puts("Hello world")
 
 end
