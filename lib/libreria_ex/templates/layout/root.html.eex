@@ -10,6 +10,7 @@
 </head>
 <body>
   <%= @inner_content %>
+  <h1>Hola</h1>
   <script <%= csp_nonce(@conn, :script) %>><%= raw(render("app.js")) %></script>
 </body>
 </html>
