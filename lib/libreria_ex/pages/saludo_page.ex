@@ -1,7 +1,7 @@
-defmodule LibreriaEx.HomePage do
+defmodule LibreriaEx.SaludoPage do
   use LibreriaEx.PageBuilder
 
-  def mount(_params, _session, socket) do
+  def mount(_params, session, socket) do
   {:ok, socket}
   end
 
@@ -9,8 +9,8 @@ defmodule LibreriaEx.HomePage do
 
   def render(assigns) do
     ~L"""
-      <div class="message">
-        <h1>Welcome to LibreriaEx</h1>
+      <div class="saludo">
+        <h1>Este es un saludo desde otra vista</h1>
       </div>
     """
   end

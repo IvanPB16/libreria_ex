@@ -43,6 +43,7 @@ defmodule LibreriaEx.Router do
     {pages, requirements} =
       [
         home: {LibreriaEx.HomePage, %{}},
+        saludo: {LibreriaEx.SaludoPage, %{}}
       ]
       |> Enum.map(fn {key, {module, opts}} ->
         {session, requirements} = initialize_page(module, opts)

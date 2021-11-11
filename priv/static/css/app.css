@@ -5,7 +5,7 @@
   padding: 0;
 }
 
-.container {
+body {
   background: black;
   color: white;
   background-color: #040404;
@@ -21,4 +21,11 @@
   margin: 10px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.saludo {
+  color: white;
+  font-size: 20px;
+  font-family: 'Oswald', sans-serif;
+  justify-content: center;
 }
