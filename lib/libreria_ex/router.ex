@@ -16,6 +16,18 @@ defmodule LibreriaEx.Router do
   def __options__(options) do
     live_socket_path = Keyword.get(options, :live_socket_path, "/live")
 
+    additional_pages =
+      case options[:additional_pages] do
+        nil ->
+          []
+
+        pages when is_list(pages) ->
+          normalize_additional_pages(pages)
+
+        other ->
+          raise ArgumentError, ":additional_pages must be a keyword, got: " <> inspect(other)
+      end
+
     csp_nonce_assign_key =
       case options[:csp_nonce_assign_key] do
         nil -> nil
@@ -24,6 +36,7 @@ defmodule LibreriaEx.Router do
       end
 
     session_args = [
+      additional_pages,
       csp_nonce_assign_key
     ]
 
@@ -33,6 +46,24 @@ defmodule LibreriaEx.Router do
       layout: {LibreriaEx.LayoutView, :root},
       as: :live_libreria_ex
     ]
+  end
+
+  defp normalize_additional_pages(pages) do
+    Enum.map(pages, fn
+      {path, module} when is_atom(path) and is_atom(module) ->
+        {path, {module, []}}
+
+      {path, {module, args}} when is_atom(path) and is_atom(module) ->
+        {path, {module, args}}
+
+      other ->
+        msg =
+          "invalid value in :additional_pages, " <>
+            "must be a tuple {path, {module, args}}, where path is a binary and " <>
+            "the module implements Phoenix.LiveDashboard.PageBuilder, got: "
+
+        raise ArgumentError, msg <> inspect(other)
+    end)
   end
 
   def __session__(
